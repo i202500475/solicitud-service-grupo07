@@ -1,23 +1,18 @@
 package pe.edu.cibertec.solicitudservice.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-public class SolicitudPrestamoResponseDTO {
-    private Long idSolicitud;
-    private Long idEmpleado;
-    private BigDecimal montoSolicitado;
-    private Integer numeroCuotas;
-    private BigDecimal tasaInteresAnual;
-    private BigDecimal montoTotalPagar;
-    private List<CuotaProyectadaDTO> listaCuotasProyectadas;
+public record SolicitudPrestamoResponseDTO(
+        Long idSolicitud,
+        String codigoSolicitud,
+        LocalDateTime fechaSolicitud,
+        Long clienteId,
+        Double montoSolicitado,
+        Integer plazoMeses,
+        String estadoSolicitud,
+        List<CuotaPrestamoDTO> listaCuotasProyectadas,
+        Double tasaInteresAnual,
+        Double montoTotalPagar
+) {
 }
